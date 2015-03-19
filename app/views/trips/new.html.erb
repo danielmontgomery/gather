@@ -1,0 +1,9 @@
+
+<p>Add a new trip.</p>
+<p>This is your new_trip_path</p>
+
+<%= form_for @trip do |f| %>
+	Trip title: <%= f.text_field :title %>
+<br>
+	<%= f.submit "Add a new trip with this title" %>
+<% end %>	

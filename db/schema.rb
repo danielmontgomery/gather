@@ -11,10 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317185456) do
+ActiveRecord::Schema.define(version: 20150318020654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["trip_id"], name: "index_comments_on_trip_id", using: :btree
+
+  create_table "references", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "rating"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "references", ["user_id"], name: "index_references_on_user_id", using: :btree
+
+  create_table "trip_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "trip_users", ["trip_id"], name: "index_trip_users_on_trip_id", using: :btree
+  add_index "trip_users", ["user_id"], name: "index_trip_users_on_user_id", using: :btree
+
+  create_table "trips", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.date     "day"
+    t.time     "departure_time"
+    t.integer  "price"
+    t.string   "duration"
+    t.integer  "size"
+    t.integer  "require_rating"
+    t.integer  "organizer_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "trips", ["organizer_id"], name: "index_trips_on_organizer_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,10 +74,30 @@ ActiveRecord::Schema.define(version: 20150317185456) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "nickname"
+    t.string   "education"
+    t.string   "about"
+    t.string   "occupation"
+    t.string   "hometown"
+    t.string   "interests"
+    t.string   "past_homes"
+    t.string   "past_travels"
+    t.string   "future_travels"
+    t.string   "travel_style"
+    t.string   "location"
+    t.integer  "age"
+    t.boolean  "currently_traveling"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  add_foreign_key "comments", "trips"
+  add_foreign_key "references", "users"
+  add_foreign_key "trip_users", "trips"
+  add_foreign_key "trip_users", "users"
+  add_foreign_key "trips", "users", column: "organizer_id"
 end

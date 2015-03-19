@@ -1,0 +1,7 @@
+<p>Add a new trip.</p>
+<p>This is your trip_users_path</p>
+
+<% form_for trip_user.new do |f| %>
+	<%= f.text_field :title %>
+	<%= f.submit "add a new trip with this title" %>
+<% end %>	
