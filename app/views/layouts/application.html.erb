@@ -7,9 +7,34 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
-<%= yield %>
 
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<div id="navbar">
+	<div class="container">
+		<div class="logo"><%= link_to "Gather", trips_path, :class => "linkTitle" %></div>
+		<div id="nav-collapse">MENU
+		</div>
+		<nav class="nope">
+			<ul>
+				<li><%= link_to "Home (trips)", trips_path, :class => "link" %></li>
+				<li><%= link_to "About (trips)", trips_path, :class => "link" %></li>
+				<% if current_user == nil %>
+				<li>
+					<%= link_to "Sign up", new_user_registration_path, :class => "link" %> / <%= link_to "Login", new_user_session_path, :class => "link" %></li>
+					<% else %>
+					<li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "link" %></li>
+					<% end %>
+			</ul>	
+		
+		</nav>
+	</div>
+</div>
+<%= yield %>
+<script>
+$( '#nav-collapse').click(function() {
+  	$('nav').toggleClass("nope");
+});
+</script>
 </body>
 </html>

@@ -1,10 +1,11 @@
 class TripsController < ApplicationController
 	def index
 		@user = current_user
-		puts "====================="
-		puts current_user.trips_organized.first
-		puts "====================="
+
 		@allTrips = @user.trips_organized.all
+	end
+	def show
+		
 	end
 	def new
 		@user = current_user

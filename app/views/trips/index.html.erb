@@ -1,16 +1,17 @@
-<h1>Trips Index</h1>
-<h2>Here should be your trip search page. </h2>
-<p>Hi, <%= current_user.email %>, here are all the trips you've made:</p>
-<% @allTrips.each do |t| %>
+<div class="container">
+	<h1>Trips Index</h1>
+	<h2>Here should be your trip search page. </h2>
+	<!-- Displays if there's a current user logged in: -->
+	<% if current_user != nil %>
+		<p>Hi, <%= current_user.email %>, here are all the trips you've made:</p>
+		<% @allTrips.each do |t| %>
+			Trip #<%= t.id %><br>
+			Title:<%= t.title %><br>
+			Organizer:<%= t.organizer_id %><br><br>
+		<% end %>
+		<%= link_to 'Make a new trip!', new_trip_path %> <br>
+		<% else %>
 
-Trip #<%= t.id %><br>
-Title:<%= t.title %><br>
-Organizer:<%= t.organizer_id %><br><br>
-
-<% end %>
-
-<%= link_to 'Make a new trip!', new_trip_path %> <br>
-
-<%= link_to "Sign up", new_user_registration_path %><br>
-<%= link_to "Login", new_user_session_path %><br>
-<%= link_to "Logout", destroy_user_session_path, method: :delete %><br>
+		<p> TEXT FOR LOGGED OUT USER </p>
+	<% end %>
+</div>

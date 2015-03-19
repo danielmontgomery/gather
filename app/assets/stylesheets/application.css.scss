@@ -1,0 +1,125 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+// Attribution:
+// Navbar inspiration: http://codepen.io/adriantimpau/pen/srvaj
+
+$small: 768px;
+
+*, *:after, *:before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background: white;
+	font-family: Helvetica, sans-serif;
+}
+.container {
+	position: relative;
+	margin: 0px auto;
+	width: 90%;
+	max-width: 940px;
+}
+#nav-collapse {
+	display: none;
+}
+#navbar {
+	// position: fixed;
+	margin-bottom: 40px;
+	width: 100%;
+	background: rgba(255,255,255,.7);
+	padding: 10px;
+	z-index: 1;
+}
+.logo {
+	font-size: 1.5em;
+	font-weight: 900;
+	background: #123456;
+	padding: 5px;
+	color: white;
+	float: left;
+}
+nav {
+	display: block;
+	float: right;
+	ul {
+		list-style: none;
+		margin-top: 10px;
+		cursor: pointer;
+		li {
+			display: inline;
+			padding: 5px;
+			border-radius: 5px;
+			background: #eee;
+			color: gray;
+			&:hover {
+				background: silver;
+				color: #fff;
+			}
+		}
+	}
+}
+@media only screen and (max-width: $small) {
+	.container {
+		width: 100%;
+	}
+	.navbar {
+		padding: 10px 0 0 0;
+	}
+	.logo {
+		margin: 0 0 10px 10px;
+	}
+	#nav-collapse {
+		display: block;
+		margin: 5px 10px 0 0;
+		float: right;
+		cursor: pointer;
+		padding: 5px;
+		background: gray;
+		color: white;
+		border-radius: 3px;
+	}
+	nav {
+		float: none;
+		clear: both;
+		ul {
+			margin-top: 0px;
+			li {
+				display: block;
+				border-radius: 0;
+				background: #eee;
+				color: gray;
+				text-align: center;
+				border-bottom: 1px solid #fff
+			}
+		}
+	}
+	#nav-collapse:hover {
+		background: silver;
+	}
+	.nope {
+		display: none;
+	}
+}
+.link {
+	text-decoration: none;
+	color: black;
+}
+.linkTitle {
+	text-decoration: none;
+	color: white;
+}
