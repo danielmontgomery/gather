@@ -1,6 +1,7 @@
 <div class="container">
-	<h1>Trips Index</h1>
+	<h1>Your Trips</h1>
 	<h2>Here should be your trip search page. </h2>
+	<br>
 	<!-- Displays if there's a current user logged in: -->
 	<% if current_user != nil %>
 		<p>Hi, <%= current_user.email %>, here are all the trips you've made:</p>
@@ -12,6 +13,6 @@
 		<%= link_to 'Make a new trip!', new_trip_path %> <br>
 		<% else %>
 
-		<p> TEXT FOR LOGGED OUT USER </p>
+		<p> You must be logged in to create or join a trip! <%= link_to "Sign up", new_user_registration_path, :class => "link_inline" %> or <%= link_to "Login", new_user_session_path, :class => "link_inline" %> today! </p>
 	<% end %>
 </div>

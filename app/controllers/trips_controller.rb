@@ -1,11 +1,12 @@
 class TripsController < ApplicationController
 	def index
 		@user = current_user
-
-		@allTrips = @user.trips_organized.all
+		if current_user != nil
+			@allTrips = @user.trips_organized.all
+		end
 	end
 	def show
-		
+
 	end
 	def new
 		@user = current_user
