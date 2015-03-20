@@ -13,6 +13,9 @@ class TripsController < ApplicationController
 	end
 	def show
 		@trip = Trip.where(id: params[:id]).first
+		@tripLat = @trip.latitude
+		@tripLon = @trip.longitude
+		
 	end
 	def new
 		@user = current_user
