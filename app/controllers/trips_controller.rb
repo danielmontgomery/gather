@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
 	def index
 		if params[:search].present?
-			@trips = Trip.near(params[:search], 70, :order => :distance)
+			@trips = Trip.near(params[:search], 70)
 		else
 			@trips = Trip.all
 		end

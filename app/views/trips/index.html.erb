@@ -17,7 +17,11 @@
 	<%# end %> -->
 </div>
 
-<%= form_for trips_path, :method => :get do %>
+<%= form_tag trips_path, :method => :get do %>
 	<%= text_field_tag :search, params[:search] %>
 	<%= submit_tag "Search Near", :name => nil %>
+<% end %>
+
+<% @trips.each do |t| %>
+	<%= link_to t.title, t %><br>
 <% end %>
