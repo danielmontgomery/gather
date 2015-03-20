@@ -1,0 +1,12 @@
+<div class="container">
+<h2>Current Trip Selected:</h2>
+Title: <%= @trip.title %><br>
+Description: <%= @trip.description %><br>
+Meeting Point: <%= @trip.meeting_point %>
+<h3>Nearby Locations</h3>
+<ul>
+<% for location in @trip.nearbys(20) %>
+	<li><%= link_to location.title, location %> Meeting Point:<%= link_to location.meeting_point, location %> (<%= location.distance.round(2) %> miles)</li>
+<% end %>
+</ul>
+</div>
