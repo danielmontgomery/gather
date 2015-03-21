@@ -20,13 +20,12 @@
 		<nav class="nope">
 			<ul>
 				<li><%= link_to "Home (trips)", trips_path, :class => "link" %></li>
-				<li><%= link_to "About (trips)", trips_path, :class => "link" %></li>
 				<% if current_user == nil %>
-				<li>
-					<%= link_to "Sign up", new_user_registration_path, :class => "link" %> / <%= link_to "Login", new_user_session_path, :class => "link" %></li>
-					<% else %>
-					<li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "link" %></li>
-					<% end %>
+				<li><%= link_to "Sign up", new_user_registration_path, :class => "link" %> / <%= link_to "Login", new_user_session_path, :class => "link" %></li>
+				<% else %>
+				<li><%= link_to "Profile", user_path(current_user.id), :class => "link" %></li>
+				<li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "link" %></li>
+				<% end %>
 			</ul>	
 		
 		</nav>

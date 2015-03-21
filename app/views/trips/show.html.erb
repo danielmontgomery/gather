@@ -26,10 +26,11 @@
 	
 	<h2><%= @trip.title %></h2><br>
 	<b>Description: </b><%= @trip.description %><br>
+	<br><br>
 	<h3>Nearby Trips</h3>
 	<ul>
 	<% for location in @trip.nearbys(20) %>
-		<li><%= link_to location.title, location %> Meeting Point:<%= link_to location.meeting_point, location %> (<%= location.distance.round(2) %> miles)</li>
+		<li><%= link_to location.title, location %> (<%= location.distance.round(2) %> miles)</li>
 	<% end %>
 	</ul>
 	<b>Meeting Point: </b><%= @trip.meeting_point %><br>

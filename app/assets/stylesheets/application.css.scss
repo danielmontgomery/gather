@@ -151,3 +151,62 @@ nav {
 	height: 275px;
 	border-radius: 5px;
 }
+.result {
+	padding: 5px;
+	margin: 5px;
+	border: 1px solid $black-ish;
+	border-radius: 8px;
+	height: 100px;
+	.left-col {
+		width: 12%;
+		height: 100%;
+		float: left;
+		.price {
+			border: 1px solid $black-ish;
+			border-radius: 8px;
+			height: 100%;
+			.priceTop {
+				background-color: $white-ish;
+				height: 57%;
+				border-bottom: 1px solid $black-ish;
+				.dollar {
+					font-size: 20px;
+
+				}
+				h1 {
+					font-size: 40px;
+					text-align: center;
+					margin-top: 16px;
+				}
+			}
+			.priceBottom {
+				p {
+					text-align: center;
+					font-size: 14px;
+					padding-top: 4px;
+				}
+			}
+		}
+	}
+	.mid-col {
+		width: 60%;
+		height: 100%;
+		float: left;
+		margin-left: 8px;
+		padding-left: 8px;
+		padding-top: 4px;
+		border-left: 1px solid $black-ish;
+		.tripTitle {
+			font-size: 25px;			
+			a {
+				text-decoration: none;
+				color: $black-ish;
+			}
+		}
+	}
+	.right-col {
+		width: 20%;
+		height: 100%;
+		float: left;
+	}
+}
