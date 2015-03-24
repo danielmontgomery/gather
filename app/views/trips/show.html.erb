@@ -23,18 +23,61 @@
 </head>
 <body>
 	<div class="container">
-	
-	<h2><%= @trip.title %></h2><br>
-	<b>Description: </b><%= @trip.description %><br>
-	<br><br>
-	<h3>Nearby Trips</h3>
-	<ul>
-	<% for location in @trip.nearbys(20) %>
-		<li><%= link_to location.title, location %> (<%= location.distance.round(2) %> miles)</li>
-	<% end %>
-	</ul>
-	<b>Meeting Point: </b><%= @trip.meeting_point %><br>
-	<div id="map-canvas"></div>
-
+    <div class="header">
+      <span class="redButton"><%= link_to "Back to Search", trips_path %></span>
+    </div>
+    <!-- Left Column -->
+    <div class="leftCol">
+      <div class="spacedOut"><h3>Organizer:</h3></div>
+      <div class="spacedOut"><%= @trip.organizer.first_name %> <%= @trip.organizer.last_name %><br></div>
+      <div class="spacedOut"><% if current_user != nil %></div>
+        <%= link_to "Join this trip!", trip_user_path, method: :patch, :class => "blueButton" %>
+      <% end %>
+      <div class="spacedOut"><h3>Nearby Trips</h3></div>    
+      <ul>
+        <% for location in @trip.nearbys(20) %>
+          <li><%= link_to location.title, location %> (<%= location.distance.round(2) %> miles)</li>
+        <% end %>
+      </ul>
+    </div>
+    <!-- Right(Main) Column -->
+    <div class="rightCol">
+    	<h2><%= @trip.title %></h2><br>
+      <div class="row">
+        <div class="twoThirds">
+          <b>Description: <br></b><%= @trip.description %><br>
+        </div>
+        <div class="oneThird">
+          <div class="priceBox">
+            <div class="priceTop">
+              <h1><span class="dollar">$</span><%= @trip.price %></h1>
+            </div>
+            <div class="priceBottom">
+              <p>Expected</p>
+            </div>
+          </div>
+          <div class="priceBox">
+            <div class="priceTop">
+              <h1><span class="dollar">$</span><%= @trip.price %></h1>
+            </div>
+            <div class="priceBottom">
+              <p>Expected</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <h2>Meeting Point:</h2> <h3><%= @trip.meeting_point %> </h3><br>
+    	<div id="map-canvas"></div>
+    	
+    	<b>Meeting Point: </b><%= @trip.meeting_point %><br>
+    	
+        <% @trip.users.each do |u| %>
+          <%= u.first_name %>,
+        <% end %>
+      <div class="comments">
+        <h3>Comments:</h3>
+      </div>
+     </div>
 	</div>
 </body>

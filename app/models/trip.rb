@@ -5,9 +5,11 @@ class Trip < ActiveRecord::Base
 	after_save :organizer_added
 	geocoded_by :meeting_point
 	after_validation :geocode, :if => :meeting_point_changed?
+
 	def organizer_added
 		if TripUser.where(trip: self, user: self.organizer).first == nil
 			self.organizer.trip_users.create(trip:self)
 		end
 	end
+
 end

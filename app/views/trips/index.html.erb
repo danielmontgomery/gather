@@ -81,7 +81,7 @@
 			<div class="left-col">
 				<div class="price">
 					<div class="priceTop">
-						<h1><span class="dollar">$</span>10</h1>
+						<h1><span class="dollar">$</span><%= t.price %></h1>
 					</div>
 					<div class="priceBottom">
 						<p>Expected</p>
@@ -90,11 +90,16 @@
 			</div>
 			<div class="mid-col">
 				<b><span class="tripTitle"><%= link_to t.title, t %></span></b><br>
+				Organized by <%= link_to t.organizer.first_name, t %> <%= link_to t.organizer.last_name, t %><br>
+				Participants: 	<% t.users.each do |u| %>
+									<%= u.nickname %>,
+								<% end %>
 			</div>
 			<div class="right-col">
-				<p>Join Trip</p>
+				<p><%= link_to "Learn", t %><br>
+				<%= link_to "More", t %></p>
 			</div>
-		</div>
+		</div>	
 	<% end %>
 </div>
 

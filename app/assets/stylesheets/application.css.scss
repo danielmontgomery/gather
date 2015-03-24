@@ -37,12 +37,73 @@ body {
 	background: $white-ish;
 	font-family: Helvetica, sans-serif;
 	padding: 0px;
+	a {
+		text-decoration: none;
+	}
 }
 .container {
 	position: relative;
 	margin: 0px auto;
 	width: 90%;
 	max-width: 940px;
+	ul {
+		list-style-type: none;
+		padding:0;
+		margin:0;
+	}
+	.leftCol {
+		width: 20%;
+		float: left;
+		padding-right: 3%;
+		.spacedOut {
+			padding-bottom: 8px;
+			margin-top: 12px;
+		}
+	}
+	.rightCol {
+		width: 80%;
+		float: left;
+		.row {
+			height: 106px;
+			.twoThirds {
+				width: 66%;
+				float: left;
+			}
+			.oneThird {
+				width: 34%;
+				float: left;
+				.priceBox {
+					border: 1px solid $black-ish;
+					border-radius: 8px;
+					height: 86px;
+					width: 90px;
+					float: left;
+					margin: 5px;
+					.priceTop {
+						background-color: $white-ish;
+						height: 55%;
+						border-bottom: 1px solid $black-ish;
+						.dollar {
+							font-size: 20px;
+
+						}
+						h1 {
+							font-size: 40px;
+							text-align: center;
+							margin-top: 16px;
+						}
+					}
+					.priceBottom {
+						p {
+						text-align: center;
+						font-size: 14px;
+						padding-top: 4px;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 #nav-collapse {
 	display: none;
@@ -86,6 +147,14 @@ nav {
 @media only screen and (max-width: $small) {
 	.container {
 		width: 100%;
+		padding-left: 3%;
+		padding-right: 3%;
+		.leftCol {
+			width: 100%;
+		}
+		.rightCol {
+			width: 100%;
+		}
 	}
 	.navbar {
 		padding: 10px 0 0 0;
@@ -147,7 +216,7 @@ nav {
 	}
 }
 #map-canvas {
-	width: 500px;
+	width: 100%;
 	height: 275px;
 	border-radius: 5px;
 }
@@ -189,7 +258,7 @@ nav {
 		}
 	}
 	.mid-col {
-		width: 60%;
+		width: 74%;
 		height: 100%;
 		float: left;
 		margin-left: 8px;
@@ -205,8 +274,48 @@ nav {
 		}
 	}
 	.right-col {
-		width: 20%;
+		width: 12%;
 		height: 100%;
 		float: left;
+		border-left: 1px solid $black-ish;
+		&:hover {
+			color: $magenta;
+		}
+		p, a {
+			text-align: center;
+			padding-top: 20px;
+			font-size: 20px;
+			color: $black-ish;
+		}
 	}
+}
+.redButton {
+	background-color: $red;
+	padding: 10px;
+	border-radius: 3px;
+	margin-bottom: 8px;
+	margin: 8px;
+	a {
+		font-size: 15px;
+		color: $white-ish;
+	}
+	&:hover {
+		background-color: $red-light;
+	}
+}
+.blueButton {
+	background-color: $teal;
+	padding: 10px;
+	border-radius: 3px;
+	margin-bottom: 8px;
+	color: $white-ish;
+	font-size: 15px;
+	margin-bottom: 15px;
+	&:hover {
+		background-color: $teal-light;
+	}
+}
+.header {
+	margin-top: 25px;
+	margin-bottom: 25px;
 }
