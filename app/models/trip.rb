@@ -1,5 +1,6 @@
 class Trip < ActiveRecord::Base
 	has_many :trip_users
+	has_many :comments
 	has_many :users, through: :trip_users
 	belongs_to :organizer, class_name: "User", foreign_key: :organizer_id, inverse_of: :trips_organized
 	after_save :organizer_added

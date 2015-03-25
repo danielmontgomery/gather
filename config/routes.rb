@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :trips
+  resources :trips do
+    resources :comments
+  end
   resources :trip_users
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.

@@ -8,10 +8,11 @@ class TripsController < ApplicationController
 			@trips = Trip.near("losangeles", 70)
 			@placeName = "Los Angeles, California"
 		end
-		
+
 	end
 	def show
 		@trip = Trip.where(id: params[:id]).first
+		@comments = @trip.comments.all
 		@tripLat = @trip.latitude
 		@tripLon = @trip.longitude
 		

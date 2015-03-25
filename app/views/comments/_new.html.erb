@@ -1,0 +1,4 @@
+<%= form_for ([@trip, @trip.comments.build]) do |f| %>
+	<%= f.text_area :body %>
+	<%= f.submit %>
+<% end %>
