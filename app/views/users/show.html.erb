@@ -2,6 +2,11 @@
 	<!-- Left Column -->
 	<div class="leftCol">
 		<h2>Verifications</h2>
+		<ul>
+			<li>email</li>
+			<li>facebook</li>
+			<li>twitter</li>
+		</ul>
 	</div>
 	<!-- Right Column -->
 	<div class="rightCol">
@@ -13,7 +18,7 @@
 					<p>Trips</p>
 				</div>
 				<div class="rightInfo">
-					<p>##</p>
+					<p><%= @user.trips_organized.count %></p>
 				</div>
 			</div>
 			<div class="infoBar">
@@ -21,13 +26,19 @@
 					<p>References</p>
 				</div>
 				<div class="rightInfo">
-					<p>##</p>
+					<p><%= @user.references.count %></p>
 				</div>
 			</div>
 		</div>
 		<h2>References</h2>
 		<%= render 'form' %>
 <%= render 'references/references' %>
-		<h2>Past Trips</h2>
+		<h2>Past Trips</h2><br>
+		<% @user.trips_organized.each do |t| %>
+			<div class="tripBox">
+				<h4><%= t.title %></h4>
+				<p><%= t.description %></p>
+			</div>
+		<% end %>
 	</div>
 </div>
