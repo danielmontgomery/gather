@@ -1,0 +1,89 @@
+<div class="jumbotron">
+	<div class="container">
+		<div class="center">
+			<div class="titleHolder">
+				<h1>Find trips near you:</h1>
+				<div class="searchBox">
+						<%= form_tag trips_path, :method => :get do %>
+							<%= text_field_tag :search, params[:search], :placeholder => "Enter your location" %>
+							<%= submit_tag "Search", :name => nil %>
+						<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="homeBody">
+	<div class="container">
+		<div class="midHomeRow">
+			<div class="row">
+				<h1>How it works:</h1>
+			</div>
+			<div class="row">
+				<div class="oneThird">
+					<div class="howToBox">
+						<div class="topRow">
+							<h1><%= image_tag("search.png", :alt=> "search") %></h1>
+						</div>
+						<div class="titleRow">
+							<h3>1. Search for Trips</h3>
+						</div>
+						<div class="bodyRow">
+							<p>Search the city in which you're currently traveling, or search where you will be soon. Plans change, so Gather is meant to be used last-minute.</p>
+						</div>
+					</div>
+				</div>
+				<div class="oneThird">
+					<div class="howToBox">
+						<div class="topRow">
+							<h1><%= image_tag("personadd.png", :alt=> "add yourself") %></h1>
+						</div>
+						<div class="titleRow">
+							<h3>2. Join a trip that looks fun</h3>
+						</div>
+						<div class="bodyRow">
+							<p>Whether it's sharing a rental car, going on an organized tour, or joining a pub crawl, find something that interests you.</p>
+						</div>
+					</div>
+				</div>
+				<div class="oneThird">
+					<div class="howToBox">
+						<div class="topRow">
+							<h1><%= image_tag('gotravel.png', :alt=>'go travel!') %></h1>
+						</div>
+						<div class="titleRow">
+							<h3>3. Go Travel!</h3>
+						</div>
+						<div class="bodyRow">
+							<p>Make new friends and save money! Be at the designated meeting point at the set time, and travel from there!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="homeBodyDark">
+	<div class="container">
+		<div class="row">
+			<h2>About Gather</h2>
+		</div>
+		<div class="row">
+			<div class="oneThird">
+				<ul>
+					<li>Link 1</li>
+				</ul>
+			</div>
+						<div class="oneThird">
+				<ul>
+					<li>Link 2</li>
+				</ul>
+			</div>
+						<div class="oneThird">
+				<ul>
+					<li>Link 3</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

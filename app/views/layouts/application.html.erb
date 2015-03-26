@@ -15,11 +15,11 @@
 <p class="alert"><%= alert %></p>
 <div id="navbar">
 	<div class="container">
-		<div class="logo"><%= link_to "Gather", trips_path, :class => "linkTitle" %></div>
+		<div class="logo"><%= link_to "Gather", home_index_path, :class => "linkTitle" %></div>
 		<div id="nav-collapse">MENU</div>
 		<nav class="nope">
 			<ul>
-				<li><%= link_to "Home (trips)", trips_path, :class => "link" %></li>
+				<li><%= link_to "Trips", trips_path, :class => "link" %></li>
 				<% if current_user == nil %>
 				<li><%= link_to "Sign up", new_user_registration_path, :class => "link" %> / <%= link_to "Login", new_user_session_path, :class => "link" %></li>
 				<% else %>

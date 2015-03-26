@@ -27,6 +27,7 @@ $red: #ff4f5b;
 $red-light: #ff7880;
 $peach: #fda992;
 $magenta: #790051;
+$transparent: rgba(0,0,0,0);
 
 *, *:after, *:before {
 	margin: 0;
@@ -34,7 +35,7 @@ $magenta: #790051;
 	box-sizing: border-box;
 }
 body {
-	background: $white-ish;
+	background: $transparent;
 	font-family: Helvetica, sans-serif;
 	padding: 0px;
 	a {
@@ -70,8 +71,8 @@ body {
 				float: left;
 			}
 			.oneThird {
-				width: 34%;
-				float: right;
+				width: 33%;
+				float: left;
 				.priceBox {
 					border: 1px solid $black-ish;
 					border-radius: 8px;
@@ -110,10 +111,10 @@ body {
 }
 #navbar {
 	// position: fixed;
-	margin-bottom: 40px;
+	margin-bottom: 4px;
+	margin-top: 4px;
 	width: 100%;
-	background: rgba(255,255,255,.7);
-	padding-bottom: 34px;
+	padding-bottom: 38px;
 	z-index: 1;
 }
 .logo {
