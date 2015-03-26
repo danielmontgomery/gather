@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :trip_users
-  resources :users
+  resources :users do
+    resources :references
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,5 @@
+<%= form_for ([@user, @user.references.build]) do |f| %>
+	Rating: (Good or Bad, 1 is bad, 2 is good)<%= f.number_field :rating %>
+	Text<%= f.text_area :description %>
+	<%= f.submit %>
+<% end %>

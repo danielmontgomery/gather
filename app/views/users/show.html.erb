@@ -1,3 +1,33 @@
-<%= @user.first_name %> <%= @user.last_name %>
-<br><br>
-<h2>References</h2>
+<div class="container">
+	<!-- Left Column -->
+	<div class="leftCol">
+		<h2>Verifications</h2>
+	</div>
+	<!-- Right Column -->
+	<div class="rightCol">
+		<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+		<h3><%= @user.location %></h3>
+		<div class="row">
+			<div class="infoBar">
+				<div class="leftInfo">
+					<p>Trips</p>
+				</div>
+				<div class="rightInfo">
+					<p>##</p>
+				</div>
+			</div>
+			<div class="infoBar">
+				<div class="leftInfo">
+					<p>References</p>
+				</div>
+				<div class="rightInfo">
+					<p>##</p>
+				</div>
+			</div>
+		</div>
+		<h2>References</h2>
+		<%= render 'form' %>
+<%= render 'references/references' %>
+		<h2>Past Trips</h2>
+	</div>
+</div>

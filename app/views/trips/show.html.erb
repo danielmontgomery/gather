@@ -42,7 +42,7 @@
     </div>
     <!-- Right(Main) Column -->
     <div class="rightCol">
-    	<h2><%= @trip.title %></h2><br>
+    	<h1><%= @trip.title %></h1><br>
       <div class="row">
         <div class="twoThirds">
           <b>Description: <br></b><%= @trip.description %><br>
@@ -58,10 +58,10 @@
           </div>
           <div class="priceBox">
             <div class="priceTop">
-              <h1><span class="dollar">$</span><%= @trip.price %></h1>
+              <h1><span class="dollar"></span><%= @trip.users.length %></h1>
             </div>
             <div class="priceBottom">
-              <p>Expected</p>
+              <p>People Going</p>
             </div>
           </div>
         </div>
