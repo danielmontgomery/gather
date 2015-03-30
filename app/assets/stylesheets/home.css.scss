@@ -17,7 +17,7 @@ $magenta: #790051;
 .jumbotron {
 	width: 100%;
 	height: 683px;
-	background-image: url("http://i.imgur.com/DaANACG.jpg");
+	background-image: url(asset_path('favorites-4.jpg'));
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	.center {
@@ -27,7 +27,10 @@ $magenta: #790051;
 		.titleHolder {
 			margin: 28px auto;
 			width: 71%;
-			padding: 25px;
+			padding-top: 25px;
+			padding-left: 25px;
+			padding-right: 25px;
+			padding-bottom: 1px;
 			background-color: rgba(255, 255, 255, 0.3);
 			-webkit-transition: 0.5s;
 			&:hover {
@@ -68,11 +71,11 @@ $magenta: #790051;
 
 }
 .homeBody {
-	margin: 20px auto;
+	padding: 20px;
 	background-color: $white-ish;
 	color: $black-ish;
 	text-align: center;
-	height: 350px;
+	height: 443px;
 	.oneThird {
 		margin-top: 20px;
 		margin-bottom: 20px;
