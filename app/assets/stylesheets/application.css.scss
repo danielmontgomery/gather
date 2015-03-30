@@ -22,6 +22,9 @@
 $small: 768px;
 
 $black-ish: #2b2c2d;
+$gray: #444444;
+$gray-light: #f2f2f2;
+$blue-ish: #0d75ac;
 $white-ish: #edefed;
 $teal: #007a88;
 $teal-light: #009bad;
@@ -234,7 +237,7 @@ nav {
 	height: 100px;
 	border-radius: 2px;
 	&:hover {
-		background-color: $magenta;
+		background-color: $gray-light;
 	}
 	.left-col {
 		width: 12%;
@@ -280,7 +283,7 @@ nav {
 				font-family: 'Montserrat', sans-serif;
 				font-weight: 700;
 				text-decoration: none;
-				color: $black-ish;
+				color: $blue-ish;
 			}
 		}
 	}
@@ -296,7 +299,7 @@ nav {
 			text-align: center;
 			padding-top: 20px;
 			font-size: 20px;
-			color: $black-ish;
+			color: $blue-ish;
 			&:hover {
 				color: #123456;
 			}
@@ -331,4 +334,7 @@ nav {
 .header {
 	margin-top: 25px;
 	margin-bottom: 25px;
+}
+.lighten {
+	color: $gray;
 }
