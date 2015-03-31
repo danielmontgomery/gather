@@ -6,6 +6,7 @@
 $small: 768px;
 
 $black-ish: #2b2c2d;
+$gray: #444444;
 $white-ish: #edefed;
 $teal: #007a88;
 $teal-light: #009bad;
@@ -62,6 +63,9 @@ $magenta: #790051;
 							background: $teal-light;
 							border: 1px solid $teal;
 							-webkit-transition: 0.5s;
+						}
+						&:focus {
+							outline: 0;
 						}
 					}
 				}

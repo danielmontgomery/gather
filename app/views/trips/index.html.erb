@@ -59,16 +59,17 @@
 	<h1>Search for trips</h1>
 	<br>
 	<% if current_user != nil %>
-		<p><%= link_to 'Make a new trip', new_trip_path %> or search for one below:</p>
+		<p><%= link_to 'Make a new trip', new_trip_path, :class => "link_inline" %> or search for one below:</p>
 	<% else %>
 		<p> You must be logged in to create or join a trip! <%= link_to "Sign up", new_user_registration_path, :class => "link_inline" %> or <%= link_to "Login", new_user_session_path, :class => "link_inline" %> today! </p>
 	<% end %>
 	<br>
-
-	<%= form_tag trips_path, :method => :get do %>
-		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Search Near", :name => nil %>
-	<% end %>
+	<div class="searching">
+		<%= form_tag trips_path, :method => :get do %>
+			<%= text_field_tag :search, params[:search], :placeholder => "Enter your location" %>
+			<%= submit_tag "Search", :name => nil %>
+		<% end %>
+	</div>
 	<br>
 	<% if @trips.length != 0 %>
 		<h3>Here are the closest trips happening soon near <%= @placeName %>!</h3><br>
@@ -95,10 +96,9 @@
 									<%= u.nickname %>,
 								<% end %>
 			</div>
-<!-- 			<div class="right-col">
-				<p><%#= link_to ">", t %><br>
-				<%#= link_to "More", t %></b></p>
-			</div> -->
+ 			<div class="right-col">
+				<p><%= t.day.to_formatted_s(:long) %></p>
+			</div> 
 		</div>	
 	<% end %>
 </div>

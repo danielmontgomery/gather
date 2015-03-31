@@ -210,12 +210,9 @@ nav {
 }
 .link_inline {
 	text-decoration: none;
-	color: $white-ish;
-	background-color: $teal;
-	padding: 4px;
-	border-radius: 4px;
+	color: $teal;
 	&:hover {
-		background-color: $teal-light;
+		color: $teal-light;
 	}
 }
 .linkTitle {
@@ -283,7 +280,10 @@ nav {
 				font-family: 'Montserrat', sans-serif;
 				font-weight: 700;
 				text-decoration: none;
-				color: $blue-ish;
+				color: $teal;
+				&:hover {
+					color: $teal-light;
+				}
 			}
 		}
 	}
@@ -337,4 +337,33 @@ nav {
 }
 .lighten {
 	color: $gray;
+}
+.searching {
+	width: 50%;
+	form {
+		#search {
+			background-color: $white-ish;
+			border: 1px solid transparent;
+			font-size: 14px;
+			color: black;
+			width: 78%;
+		}
+		input {
+			background: $teal;
+			border: 1px solid $teal-light;
+			padding: 10px;
+			color: white;
+			font-size: 14px;
+			width: 20%;
+			-webkit-transition: 0.5s;
+			&:hover {
+				background: $teal-light;
+				border: 1px solid $teal;
+				-webkit-transition: 0.5s;
+			}
+			&:focus {
+				outline: 0;
+			}
+		}
+	}
 }
