@@ -27,19 +27,24 @@
 					<p>References</p>
 				</div>
 				<div class="rightInfo">
-					<p><%= @user.references.count %></p>
+					<p><%#= @user.references.count %></p>
 				</div>
 			</div>
 		</div>
 		<h2>References</h2>
+		<%= render 'references/references' %><br><br>
 		<%= render 'form' %>
-<%= render 'references/references' %>
-		<h2>Past Trips</h2><br>
-		<% @user.trips_organized.each do |t| %>
-			<div class="tripBox">
-				<h4><%= t.title %></h4>
-				<p><%= t.description %></p>
-			</div>
+		<br>
+		<h2>Trips organized by <%= @user.first_name %></h2><br>
+		<% if @user.trips_organized == [] %>
+			<p><%= @user.first_name %> has not organized any trips!</p>
+		<% else %>
+			<% @user.trips_organized.each do |t| %>
+				<div class="tripBox">
+					<h4><%= t.title %></h4>
+					<p><%= t.description %></p>
+				</div>
+			<% end %>
 		<% end %>
 	</div>
 </div>

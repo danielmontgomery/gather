@@ -26,10 +26,13 @@
 				},
 			<% end %>
 			];
+		var infowindow = new google.maps.InfoWindow({
+			maxWidth: 300
+		});
 		var first = markers[0];
 		var myLatLng = new google.maps.LatLng(first.lat, first.lng);
         var mapOptions = {
-          zoom: 8,
+          zoom: 11,
           center: myLatLng
         };
         var map = new google.maps.Map(document.getElementById('map-canvas'),

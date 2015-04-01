@@ -43,6 +43,7 @@
     <!-- Right(Main) Column -->
     <div class="rightCol">
     	<h1><%= @trip.title %></h1><br>
+      <h3>Departure Time: <%= @trip.departure_time.strftime("%H:%M%P") %></h3>
       <div class="row">
         <div class="twoThirds">
           <b>Description: <br></b><%= @trip.description %><br>
@@ -71,15 +72,32 @@
     	<div id="map-canvas"></div>
     	
     	<b>Meeting Point: </b><%= @trip.meeting_point %><br>
-    	
+        <!-- This runs through the list of everyone going on the trip. -->
         <% @trip.users.each do |u| %>
           <%= u.first_name %>,
         <% end %>
+      <!-- This is the comment section. --> 
       <div class="comments">
         <h3>Comments:</h3>
-        <%= render '/comments/new' %>
-        <% @comments.each do |c| %>
-          <b><%= c.user.first_name %></b><br><%= c.body %><br><br>
+        <!-- This checks if a user is logged in. If so, it should allow them to see and post comments. -->
+        <% if current_user != nil %>
+          <%= render '/comments/new' %>
+          <!-- If there are no comments, only the "add comment" box is displayed with the code above this line. -->
+          <!-- If there are comments, they are displayed. -->
+          <div class="references">
+            <% if @comments != nil %>
+              <% @comments.each do |c| %>
+                <div class="referenceField">
+                <b><%= link_to c.user.first_name, user_path(c.user.id) %></b><br><%= c.body %><br><br>
+                </div>
+              <!-- End comment loop -->
+              <% end %>
+            </div>
+            <!-- End comments != nil checker -->
+          <% end %>
+        <% else %>
+          <p>Oh No! You're not logged in! Please <%= link_to "log in", new_user_session_path, :class => "linkInline" %> to view or add comments!</p>
+        <!-- End current_user != nil checker -->
         <% end %> 
       </div>
      </div>

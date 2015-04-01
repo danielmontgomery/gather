@@ -83,16 +83,16 @@ body {
 				width: 33%;
 				float: left;
 				.priceBox {
-					border: 1px solid $black-ish;
-					border-radius: 8px;
+					// border: 1px solid $black-ish;
+					// border-radius: 8px;
 					height: 86px;
 					width: 90px;
 					float: right;
 					margin: 5px;
 					.priceTop {
-						background-color: $white-ish;
+						// background-color: $white-ish;
 						height: 55%;
-						border-bottom: 1px solid $black-ish;
+						border-bottom: 1px dotted $black-ish;
 						.dollar {
 							font-size: 20px;
 
@@ -365,5 +365,70 @@ nav {
 				outline: 0;
 			}
 		}
+	}
+}
+// Sign Up and Log On Forms
+.formContainer {
+	width: 80%;
+	background-color: $teal-light;
+	margin: 0px auto;
+	.formTop {
+		height: 50px;
+		background-color: $teal;
+		.formActive {
+			background-color: $teal-light;
+		}
+		.formInactive {
+			background-color: $teal;
+		}
+		.formTopRight {
+			height: 100%;
+			width: 48%;
+			float: right;
+			// background-color: $teal-light;
+			text-align: center;
+			padding-top: 7px;
+			a {
+				color: $white-ish;
+			}
+		}
+		.formTopLeft {
+			height: 100%;
+			width: 48%;
+			float: left;
+			// background-color: $teal;
+			text-align: center;
+			padding-top: 7px;
+			a {
+				color: $white-ish;
+			}
+		}
+	}
+	.formBody {
+		background-color: $gray-light;
+		padding: 10px;
+		margin: 5px auto;
+	}
+	.field {
+		color: $black-ish;
+		font-size: 18px;
+		input {
+			padding: 5px;
+		}
+	}
+	.actions {
+		
+	}
+}
+.references {
+	// background-color: $white-ish;
+	// border-radius: 3px;
+	.referencesField {
+		margin-left: 15px;
+		padding-left: 5px;
+		margin-bottom: 10px;
+		margin-top: 10px;
+		border-left: 3px solid $blue-ish;
+		border-radius: 1px;
 	}
 }

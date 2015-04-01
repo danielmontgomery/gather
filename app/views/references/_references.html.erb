@@ -1,5 +1,12 @@
-<% @references.each do |r| %>
-	<b><%= r.user.first_name %></b><br>
-	<%= r.rating %><br>
-	<%= r.description %><br>
-<% end %> 
+<div class="references">
+	<% if @references != nil %>
+		<% @references.each do |r| %>
+			<div class="referencesField">
+				<b><%= link_to r.user.first_name, user_path(r.user.id) %></b><br>
+				<%= r.description %><br>
+			</div>
+		<% end %> 
+	<% else %>
+		<p>There are no references yet, add one!</p>
+	<% end %>
+</div>

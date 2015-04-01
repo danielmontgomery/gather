@@ -1,25 +1,32 @@
 class ReferencesController < ApplicationController
 	def index
-		@references = Reference.where(user_id: params[:id])
-		puts '============================='
-		puts 'References'
-		puts @references
-		puts '============================='
+		@references = Reference.where(recipient_id: params[:id])
 		raise params.inspect
+	end
+	def show
+		@user = User.where(id: params[:id]).first
+		@references = @user.references.all
+		# @theseReferences = Reference.where(user = User.last)
+	end
+
+	def new
+		@references.new
 	end
 
 	def create
-		@user = User.where(id: params[:user_id]).first
-		@reference = @user.references.create(reference_params)
-		@reference.user = current_user
-		if @reference.save
-			redirect_to trip_path(id: params[:user_id])
+		@user = current_user
+		@reference = @user.references.new(reference_params)
+		@reference.recipient_id = User.where(id: params[:user_id]).first
+		if @reference.save && @reference.recipient_id != nil
+			redirect_to user_path(id: params[:user_id])
 		else
 			raise params.inspect
 		end
+
+
 	end
 	private
 	def reference_params
-		params.require(:reference).permit(:rating, :user_id, :description)
+		params.require(:reference).permit(:rating, :user_id, :description, :recipient_id)
 	end
 end

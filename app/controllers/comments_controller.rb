@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 
 	def create
 		@trip = Trip.where(id: params[:trip_id]).first
-		@comment = @trip.comments.create(comment_params)
+		@comment = @trip.comments.new(comment_params)
 		@comment.user = current_user
 		if @comment.save
 			redirect_to trip_path(id: params[:trip_id])
