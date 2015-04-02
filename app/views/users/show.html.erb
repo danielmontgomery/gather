@@ -36,7 +36,7 @@
 		<% else %>
 			<% @user.trips_organized.each do |t| %>
 				<div class="tripBox">
-					<h4><%= t.title %></h4>
+					<h4><%= link_to t.title, trip_path(t.id) %></h4>
 					<p><%= t.description %></p>
 				</div>
 			<% end %>

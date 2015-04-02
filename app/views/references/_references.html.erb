@@ -4,6 +4,11 @@
 			<div class="referencesField">
 				<b><%= link_to r.user.first_name, user_path(r.user.id) %></b><br>
 				<%= r.description %><br>
+                  <% if r.user == current_user %>
+                    <div class="deleteButton">
+                      <%= link_to "Delete", [r.recipient_id, r], method: :delete, data: { confirm: "Are you sure?" } %>
+                    </div>
+                  <% end %>
 			</div>
 		<% end %> 
 	<% else %>

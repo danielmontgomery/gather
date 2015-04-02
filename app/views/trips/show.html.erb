@@ -27,7 +27,8 @@
     <!-- Left Column -->
     <div class="leftCol">
       <div class="spacedOut"><h3>Organizer:</h3></div>
-      <div class="spacedOut"><%= link_to @trip.organizer.first_name, user_path(@trip.organizer.id) %> <%= link_to @trip.organizer.last_name, user_path(@trip.organizer.id) %><br></div>
+      <div class="spacedOut"><%= image_tag @trip.organizer.avatar.url(:thumb) %>
+        <%= link_to @trip.organizer.first_name, user_path(@trip.organizer.id) %> <%= link_to @trip.organizer.last_name, user_path(@trip.organizer.id) %><br></div>
       <div class="spacedOut"><span class="redButton"><%= link_to "Back to Search", trips_path %></span></div>
       <div class="spacedOut"><h3>Nearby Trips</h3></div>    
       <ul>
@@ -93,6 +94,12 @@
               <% @comments.each do |c| %>
                 <div class="referenceField">
                 <b><%= link_to c.user.first_name, user_path(c.user.id) %></b><br><%= c.body %><br><br>
+                  <!-- Users should only be able to delete their own comments. -->
+                  <% if c.user == current_user %>
+                    <div class="deleteButton">
+                      <%= link_to "Delete", [c.trip, c], method: :delete, data: { confirm: "Are you sure?" } %>
+                    </div>
+                  <% end %>
                 </div>
               <!-- End comment loop -->
               <% end %>

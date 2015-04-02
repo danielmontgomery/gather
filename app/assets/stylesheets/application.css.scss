@@ -68,6 +68,9 @@ body {
 		.spacedOut {
 			padding-bottom: 8px;
 			margin-top: 12px;
+			a {
+				color: $blue-ish;
+			}
 		}
 	}
 	.rightCol {
@@ -433,6 +436,11 @@ nav {
 		margin-top: 10px;
 		border-left: 3px solid $blue-ish;
 		border-radius: 1px;
+		.deleteReferenceField {
+			height: 100%;
+			widht: 30px;
+			color: $red;
+		}
 	}
 }
 .validationNum {

@@ -4,13 +4,13 @@
 
 	<%= form_for @trip do |f| %>
 		Trip title: <%= f.text_field :title %><br>
-		Description: <%= f.text_field :description %><br>
+		Description: <%= f.text_area :description %><br>
 		Date: <%= f.date_field :day %><br>
-		Departure Time: <%= f.text_field :departure_time %><br>
-		Expected Price: $<%= f.text_field :price %><br>
+		Departure Time: <%= f.time_field :departure_time %><br>
+		Expected Price: $<%= f.number_field :price %><br>
 		Duration: <%= f.text_field :duration %><br>
 		Max Number of People: <%= f.number_field :size %><br>
-		Required User Reliability Rating: <%= f.number_field :require_rating %><br>
+		<!-- Required User Reliability Rating:  --><%#= f.number_field :require_rating %><br>
 		Meeting Point: <%= f.text_field :meeting_point %><br>
 		<%= f.submit "Add a new trip with this title" %>
 	<% end %>	

@@ -94,9 +94,9 @@
 			</div>
 			<div class="mid-col">
 				<b><span class="tripTitle"><%= link_to t.title, t %></span></b><br>
-				<span class="lighten">Organized by</span> <%= link_to t.organizer.first_name, t %> <%= link_to t.organizer.last_name, t %><br>
+				<span class="lighten">Organized by</span> <%= link_to t.organizer.first_name, t %> <%= link_to t.organizer.last_name, user_path(t.organizer.id) %><br>
 				<span class="lighten">Participants: </span><% t.users.each do |u| %>
-									<%= u.nickname %>,
+									<%= link_to u.first_name, user_path(u.id) %>,
 								<% end %>
 			</div>
  			<div class="right-col">

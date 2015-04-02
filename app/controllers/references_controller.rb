@@ -22,8 +22,13 @@ class ReferencesController < ApplicationController
 		else
 			raise params.inspect
 		end
+	end
 
-
+	def destroy
+		@user = User.where(id: params[:user_id]).first
+		@reference = @user.references.find(params[:id])
+		@reference.destroy
+		redirect_to user_path(@user)
 	end
 	private
 	def reference_params

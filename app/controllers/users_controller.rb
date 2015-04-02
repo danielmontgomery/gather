@@ -23,6 +23,8 @@ class UsersController < ApplicationController
 		@user = User.where(id: params[:id]).first
 	end
 
+	
+
 	private
 	def reference_params
 		params.require(:reference).permit(:rating, :user_id, :description, :recipient_id)
