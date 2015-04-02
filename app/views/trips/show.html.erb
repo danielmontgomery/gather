@@ -93,6 +93,9 @@
             <% if @comments != nil %>
               <% @comments.each do |c| %>
                 <div class="referenceField">
+                  <div class="refImage">
+                    <%= image_tag c.user.avatar.url(:thumb) %>
+                  </div>
                 <b><%= link_to c.user.first_name, user_path(c.user.id) %></b><br><%= c.body %><br><br>
                   <!-- Users should only be able to delete their own comments. -->
                   <% if c.user == current_user %>
