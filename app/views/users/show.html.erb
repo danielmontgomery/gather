@@ -2,35 +2,30 @@
 	<!-- Left Column -->
 	<div class="leftCol">
 		<%= image_tag @user.avatar.url(:thumb) %>
-		<h2>Verifications</h2>
+<!-- 		<h2>Verifications</h2>
 		<ul>
 			<li>email</li>
 			<li>facebook</li>
 			<li>twitter</li>
-		</ul>
+		</ul> -->
+		<div class="row">
+			<div class="infoBar">
+				<div class="leftInfo">
+					<p><span class="validationNum"><%= @user.trips_organized.count %></span> Trips</p>
+				</div>
+			</div>
+			<div class="infoBar">
+				<div class="leftInfo">
+					<p><span class="validationNum"><%= @user.references.count %></span> References</p>
+				</div>
+			</div>
+		</div>
 	</div>
 	<!-- Right Column -->
 	<div class="rightCol">
 		<h1><%= @user.first_name %> <%= @user.last_name %></h1>
 		<h3><%= @user.location %></h3>
-		<div class="row">
-			<div class="infoBar">
-				<div class="leftInfo">
-					<p>Trips</p>
-				</div>
-				<div class="rightInfo">
-					<p><%= @user.trips_organized.count %></p>
-				</div>
-			</div>
-			<div class="infoBar">
-				<div class="leftInfo">
-					<p>References</p>
-				</div>
-				<div class="rightInfo">
-					<p><%#= @user.references.count %></p>
-				</div>
-			</div>
-		</div>
+
 		<h2>References</h2>
 		<%= render 'references/references' %><br><br>
 		<%= render 'form' %>

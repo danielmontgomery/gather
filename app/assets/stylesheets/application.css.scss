@@ -197,6 +197,9 @@ nav {
 			}
 		}
 	}
+	.leftCol {
+		float: left;
+	}
 	#nav-collapse:hover {
 		background: silver;
 	}
@@ -431,4 +434,8 @@ nav {
 		border-left: 3px solid $blue-ish;
 		border-radius: 1px;
 	}
+}
+.validationNum {
+	color: blue;
+	// why doesn't this work???
 }
