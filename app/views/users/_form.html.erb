@@ -1,7 +1,6 @@
 <%= form_for ([@user, @user.references.build]) do |f| %>
 	<!-- Rating: (Good or Bad, 1 is bad, 2 is good) --><%#= f.select :rating, options_for_select(%w[1 2]) %>
-	Leave a reference for <%= @user.first_name %>:
 	<br>
-	<%= f.text_area :description %><br>
-	<%= f.submit %>
+	<%= f.text_area :description, placeholder: "Add a reference for this user, be nice!" %><br>
+	<%= f.submit 'Save Reference' %>
 <% end %>

@@ -33,6 +33,7 @@ $red-light: #ff7880;
 $peach: #fda992;
 $magenta: #790051;
 $transparent: rgba(0,0,0,0);
+$green: #44e700;
 
 *, *:after, *:before {
 	margin: 0;
@@ -68,6 +69,34 @@ body {
 		.spacedOut {
 			padding-bottom: 8px;
 			margin-top: 12px;
+			.redButton {
+				background-color: $red;
+				padding: 10px;
+				border-radius: 3px;
+				margin-bottom: 8px;
+				a {
+					font-size: 15px;
+					color: $white-ish;
+				}
+				&:hover {
+					background-color: $red-light;
+				}
+			}
+			.blueButton {
+				background-color: $teal;
+				padding: 10px;
+				border-radius: 3px;
+				margin-bottom: 8px;
+				a {
+					color: white;
+				}
+				color: $white-ish;
+				font-size: 15px;
+				margin-bottom: 15px;
+				&:hover {
+					background-color: $teal-light;
+				}
+			}
 			a {
 				color: $blue-ish;
 			}
@@ -76,6 +105,96 @@ body {
 	.rightCol {
 		width: 80%;
 		float: left;
+		.aboutSection {
+			background-color: $white-ish;
+			padding: 10px;
+		}
+		.profileAttribute {
+			background-color: $white-ish;
+			padding: 10px;
+			width: 70%;
+		}
+		.comments {
+			.commentBox {
+				form {
+					#reference_description {
+						border: 1px solid $black-ish;
+						font-size: 14px;
+						margin: 5px auto;
+						padding: 5px;
+						color: black;
+						width: 100%;						
+					}
+					#comment_body {
+						border: 1px solid $black-ish;
+						font-size: 14px;
+						margin: 5px auto;
+						padding: 5px;
+						color: black;
+						width: 100%;					
+					}
+					input {
+						background: $teal;
+						border: 1px solid $teal-light;
+						padding: 10px;
+						color: white;
+						font-size: 14px;
+						width: 20%;
+						-webkit-transition: 0.5s;
+						&:hover {
+							background: $teal-light;
+							border: 1px solid $teal;
+							-webkit-transition: 0.5s;
+						}
+						&:focus {
+							outline: 0;
+						}						
+					}
+				}
+			}
+			.references {
+				// background-color: $white-ish;
+				// border-radius: 3px;
+				.referenceHolder {
+					width: 100%;
+					background-color: $white-ish;
+					display: inline-block;
+					.refImage {
+						width: 8%;
+						padding-top: 14px;
+						padding-left: 8px;
+						float: left;
+						height: 100%;
+						img {
+							width: 50px;
+							height: 50px;
+							border-radius: 25px;
+							// border: 10px solid black;
+						}
+					}
+					.referenceField {
+						width: 70%;
+						// background-color: $white-ish;
+						padding-left: 16px;
+						margin-bottom: 10px;
+						margin-top: 15px;
+						border-radius: 1px;
+						float: left;
+					}
+					.deleteButton {
+						padding-top: 29px;
+						height: 100%;
+						width: 18%;
+						float: right;
+						text-align: right;
+						padding-right: 20px;
+						a {
+							color: $red;
+						}
+					}
+				}
+			}
+		}
 		.row {
 			height: 106px;
 			.twoThirds {
@@ -312,31 +431,7 @@ nav {
 		}
 	}
 }
-.redButton {
-	background-color: $red;
-	padding: 10px;
-	border-radius: 3px;
-	margin-bottom: 8px;
-	a {
-		font-size: 15px;
-		color: $white-ish;
-	}
-	&:hover {
-		background-color: $red-light;
-	}
-}
-.blueButton {
-	background-color: $teal;
-	padding: 10px;
-	border-radius: 3px;
-	margin-bottom: 8px;
-	color: $white-ish;
-	font-size: 15px;
-	margin-bottom: 15px;
-	&:hover {
-		background-color: $teal-light;
-	}
-}
+
 .header {
 	margin-top: 25px;
 	margin-bottom: 25px;
@@ -426,24 +521,18 @@ nav {
 		
 	}
 }
-.references {
-	// background-color: $white-ish;
-	// border-radius: 3px;
-	.referencesField {
-		margin-left: 15px;
-		padding-left: 5px;
-		margin-bottom: 10px;
-		margin-top: 10px;
-		border-left: 3px solid $red-light;
-		border-radius: 1px;
-		.deleteReferenceField {
-			height: 100%;
-			widht: 30px;
-			color: $red;
+.leftInfo {
+	margin-bottom: 3px;
+	.validationNum {
+		color: $white-ish;
+		background-color: $green;
+		width: 20px;
+		height: 20px;
+		padding-left: 6px;
+		border-radius: 50%;
+		float: left;
+		.floatLeft {
+			float: left;
 		}
 	}
-}
-.validationNum {
-	color: blue;
-	// why doesn't this work???
 }

@@ -114,7 +114,11 @@ $magenta: #790051;
 			padding-top: 30px;
 			.oneThird {
 				width: 32%;
-				float: left;	
+				float: left;
+				a {
+					text-decoration: none;
+					color: $white-ish;
+				}		
 			}
 		}
 	}

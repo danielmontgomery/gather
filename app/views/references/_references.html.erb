@@ -1,15 +1,24 @@
 <div class="references">
 	<% if @references != nil %>
 		<% @references.each do |r| %>
-			<div class="referencesField">
+		<div class="referenceHolder">
+			<div class="refImage">
+				<% if !r.user.avatar.url.nil? %>
+					<%= image_tag r.user.avatar.url(:thumb) %>
+				<% else %>
+					<%= image_tag 'missing.png' %>
+				<% end %>
+			</div>
+			<div class="referenceField">
 				<b><%= link_to r.user.first_name, user_path(r.user.id) %></b><br>
 				<%= r.description %><br>
-                  <% if r.user == current_user %>
-                    <div class="deleteButton">
-                      <%= link_to "Delete", [r.recipient_id, r], method: :delete, data: { confirm: "Are you sure?" } %>
-                    </div>
-                  <% end %>
 			</div>
+            <% if r.user == current_user %>
+            	<div class="deleteButton">
+            	      <%= link_to "Delete", [r.recipient_id, r], method: :delete, data: { confirm: "Are you sure?" } %>
+      	        </div>
+            <% end %>			
+		</div>
 		<% end %> 
 	<% else %>
 		<p>There are no references yet, add one!</p>

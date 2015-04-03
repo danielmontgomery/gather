@@ -1,35 +1,87 @@
 <div class="container">
 	<!-- Left Column -->
 	<div class="leftCol">
-		<%= image_tag @user.avatar.url(:thumb) %>
+		<%= image_tag @user.avatar.url(:thumb) %><br>
 <!-- 		<h2>Verifications</h2>
 		<ul>
 			<li>email</li>
 			<li>facebook</li>
 			<li>twitter</li>
 		</ul> -->
+		<br>
 		<div class="row">
 			<div class="infoBar">
 				<div class="leftInfo">
-					<p><span class="validationNum"><%= @user.trips_organized.count %></span> Trips</p>
+					<div class="validationNum"><%= @user.trips_organized.count %></div>
+					<div class="floatLeft">Trips</div>
 				</div>
 			</div>
 			<div class="infoBar">
 				<div class="leftInfo">
-					<p><span class="validationNum"><%= @user.references.count %></span> References</p>
+					<div class="validationNum"><%= @user.references.count %></div>
+					<div class="floatLeft">References</div>
 				</div>
 			</div>
+			<br>
+			<% if @user.hometown != nil %>
+				<h5>Hometown:<br></h5>
+				<div class="profileAttribute"><%= @user.hometown %></div>
+			<% end %><br>
+			<% if @user.occupation != nil %>
+				<h5>Occupation<br></h5>
+				<div class="profileAttribute"><%= @user.occupation %></div>
+			<% end %><br>
+			<% if @user.travel_style != nil %>
+				<h5>Travel Style <br></h5>
+				<div class="profileAttribute"><%= @user.travel_style %></div>
+			<% end %><br>
 		</div>
 	</div>
 	<!-- Right Column -->
 	<div class="rightCol">
 		<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+		<% if @user.age != nil %>
+			<h4><%= @user.age %> years old</h4>
+		<% end %>
 		<h3><%= @user.location %></h3>
-
-		<h2>References</h2>
-		<%= render 'references/references' %><br><br>
-		<%= render 'form' %>
 		<br>
+		<h3>About </h3>
+		<div class="aboutSection">
+			<h4>Bio:</h4>
+			<% if @user.about != nil %>
+				<div class="profileAttribute"><%= @user.about %></div>
+			<% end %><br>
+
+			<% if @user.interests != nil %>
+				<h5>Interests<br></h5>
+				<div class="profileAttribute"><%= @user.interests %></div>
+			<% end %><br>
+			<% if @user.education != nil %>
+				<h5>Education<br></h5>
+				<div class="profileAttribute"><%= @user.education %></div>
+			<% end %><br>
+			<% if @user.past_homes != nil %>
+				<h5>Where have I've lived <br></h5>
+				<div class="profileAttribute"><%= @user.past_homes %></div>
+			<% end %><br>
+			<% if @user.past_travels != nil %>
+				<h5>Where I've traveled <br></h5>
+				<div class="profileAttribute"><%= @user.past_travels %></div>
+			<% end %><br>
+			<% if @user.future_travels != nil %>
+				<h5>Where I want to travel someday<br></h5>
+				<div class="profileAttribute"><%= @user.future_travels %></div>
+			<% end %><br>
+		</div>
+		<br>
+		<div class="comments">
+			<h3>References</h3>
+				<%= render 'references/references' %><br><br>
+	        <div class="commentBox">
+				<%= render 'form' %>
+			</div>
+			<br>
+		</div>
 		<h2>Trips organized by <%= @user.first_name %></h2><br>
 		<% if @user.trips_organized == [] %>
 			<p><%= @user.first_name %> has not organized any trips!</p>
