@@ -11,10 +11,6 @@ class UsersController < ApplicationController
 		else
 			raise params.inspect
 		end
-		# @user = current_user
-		# @reference = @user.references.new(reference_params)
-		# @reference.user = User.where(id: params[:user_id]).first
-
 	end
 
 
