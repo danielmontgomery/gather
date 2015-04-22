@@ -13,11 +13,11 @@
 				<b><%= link_to r.user.first_name, user_path(r.user.id) %></b><br>
 				<%= r.description %><br>
 			</div>
-            <% if r.user == current_user %>
+<!--             <%# if r.user == current_user %>
             	<div class="deleteButton">
-            	      <%= link_to "Delete", [r.recipient_id, r], method: :delete, data: { confirm: "Are you sure?" } %>
+            	      <%#= link_to "Delete", [r.recipient_id, r], method: :delete, data: { confirm: "Are you sure?" } %>
       	        </div>
-            <% end %>			
+            <%# end %>	 -->		
 		</div>
 		<% end %> 
 	<% else %>
